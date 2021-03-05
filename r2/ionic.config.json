@@ -1,0 +1,7 @@
+{
+  "name": "r2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
