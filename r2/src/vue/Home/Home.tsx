@@ -55,11 +55,9 @@ const Home: React.FC = () => {
                     return <IonCard key={`${i}`}><img src={item}/></IonCard>
                 })}
 
-                <IonInfiniteScroll threshold="100px" disabled={disableInfiniteScroll}
+                <IonInfiniteScroll threshold="200%" disabled={disableInfiniteScroll}
                                    onIonInfinite={(e: CustomEvent<void>) => searchNext(e)}>
-                    <IonInfiniteScrollContent
-                        loadingText="Loading more good doggos...">
-                    </IonInfiniteScrollContent>
+                    <IonInfiniteScrollContent/>
                 </IonInfiniteScroll>
             </IonContent>
         </IonPage>
