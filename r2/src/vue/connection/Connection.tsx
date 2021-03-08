@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import './Connection.css';
 import {getCurrentUser, loginViaMail} from '../../firebaseConf'
 import { myToast } from "../../toast";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 
 
 const Connection: React.FC = () => {
