@@ -5,6 +5,7 @@ import {
 } from '@ionic/react';
 import {IonReactRouter} from '@ionic/react-router';
 import Connection from "./vue/connection/Connection";
+import Home from "./vue/Home/Home"
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -32,6 +33,9 @@ const App: React.FC = () => (
             <IonRouterOutlet>
                 <Route exact path="/connection">
                     <Connection/>
+                </Route>
+                <Route exact path="/home">
+                    <Home/>
                 </Route>
                 <Route exact path="/">
                     <Redirect to="/connection"/>
