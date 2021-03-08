@@ -2,7 +2,7 @@ import {IonPage, IonContent, IonInput, IonButton, IonIcon, IonCard, IonCardTitle
 import React, { useState } from "react";
 import './Inscription.css';
 
-const Connection: React.FC = () => {
+const Inscription: React.FC = () => {
     const [input,setInput] = useState<string>('')
     return (
         <IonPage>
@@ -22,4 +22,4 @@ const Connection: React.FC = () => {
     );
 };
 
-export default Connection;
+export default Inscription;

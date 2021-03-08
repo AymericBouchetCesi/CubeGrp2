@@ -5,6 +5,7 @@ import {
 } from '@ionic/react';
 import {IonReactRouter} from '@ionic/react-router';
 import Connection from "./vue/connection/Connection";
+import Inscription from "./vue/inscription/Inscription";
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -35,6 +36,9 @@ const App: React.FC = () => (
                 </Route>
                 <Route exact path="/">
                     <Redirect to="/connection"/>
+                </Route>
+                <Route exact path="/inscription">
+                    <Inscription/>
                 </Route>
             </IonRouterOutlet>
         </IonReactRouter>
