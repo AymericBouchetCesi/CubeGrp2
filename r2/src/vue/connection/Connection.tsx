@@ -1,12 +1,25 @@
 import {IonPage, IonContent, IonInput, IonButton, IonIcon, IonCard, IonCardTitle, IonCheckbox} from "@ionic/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Connection.css';
+import {getCurrentUser, loginViaMail} from '../../firebaseConf'
+import { myToast } from "../../toast";
+
 
 const Connection: React.FC = () => {
     const [userMail,setUserMail] = useState('')
     const [password,setPassword] = useState('')
-    function login() {
+
+    async function login() {
         console.log(userMail, password)
+        const res = await loginViaMail(userMail,password)
+        console.log(`${res ?'Login valide' : 'Erreur de login'}`)
+        if(!res) {
+            myToast("Erreur de connection",2000,"danger")
+        }else{
+            myToast("Connection réussi",2000,"success")
+            window.location.href = "/Post"
+        }
+
     }
 
 
