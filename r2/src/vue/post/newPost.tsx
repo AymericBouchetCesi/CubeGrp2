@@ -9,12 +9,11 @@ const NewPost: React.FC = () => {
     const [text,setText] = useState('')
     const [title,setTitle] = useState('')
 
-    
-
     async function sendPost() {
         console.log("sendPostToDB")
+        console.log(title)
         sendPostToDB(title,text)
-        window.location.href="/Post"
+        //window.location.href="/Post"
     }
     return (
         <IonPage>
@@ -32,7 +31,7 @@ const NewPost: React.FC = () => {
                     <IonButton  size="large" shape="round">+</IonButton>
                 </IonCard>
                 <IonCard>
-                    <IonButton  onClick={sendPost} color ="primary">Envoyer {'\u2B06'}</IonButton>
+                    <IonButton onClick={sendPost} color ="primary">Envoyer {'\u2B06'}</IonButton>
                     <IonButton routerLink="/Post" color ="primary">Retour {'\u21B5'}</IonButton>
                 </IonCard>
             </IonContent>

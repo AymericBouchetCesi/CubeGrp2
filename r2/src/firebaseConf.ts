@@ -44,22 +44,7 @@ export const config = {
         return false
     }
   }
-  export async function test() { 
-    const user = fb.default.auth().currentUser?.uid
-    const userRef = db.collection("Utilisateurs").doc(user)        
-    userRef.set({
-            Email : "Test@test.fr",
-            Nom : "Test",
-            Prénom : "tt",
-            Role : "citoyen"
-        });
-    const userPost = userRef.collection("Posts")
-    userPost.add({
-            Titre : "test",
-            Message : "tqsfsdfsfsddfsfsfdsffdsest",
-            Date : fb.default.database.ServerValue.TIMESTAMP
-        });
-  }
+  
   export async function registerViaMail(userMail:string, password: string) {
     const mailExist = false//await fb.default.database().
     if(mailExist) {
@@ -98,18 +83,36 @@ export const config = {
   }
 
 
-  export async function sendPostToDB(tt:string, text: string , img : String = "") { 
+  export async function sendPostToDB(tt:string, text: string) { 
     const user = fb.default.auth().currentUser?.uid
-
     const userRef = db.collection("Utilisateurs").doc(user)
-    const userPost = userRef.collection("Posts").add(firebase.firestore.Timestamp.now())
-    ;(await userPost).set({
+    const userPost = userRef.collection("Posts")
+    userPost.add({
             Titre : tt,
             Message : text,
-            Date : fb.default.firestore.FieldValue.serverTimestamp()
+            Date : fb.default.database.ServerValue.TIMESTAMP
         });
   }
 export async function refresh(){
-    db.collection("/Post").orderBy("Date")
-
+    
+    // Create a reference to the  collection
+    const posts = await db.collectionGroup("Post").orderBy("Date").limit(10).get()
+    return posts
 }
+
+export async function test() { 
+    const user = fb.default.auth().currentUser?.uid
+    const userRef = db.collection("Utilisateurs").doc(user)        
+    userRef.set({
+            Email : "Test@test.fr",
+            Nom : "Test",
+            Prénom : "tt",
+            Role : "citoyen"
+        });
+    const userPost = userRef.collection("Posts")
+    userPost.add({
+            Titre : "test",
+            Message : "tqsfsdfsfsddfsfsfdsffdsest",
+            Date : fb.default.database.ServerValue.TIMESTAMP
+        });
+  }

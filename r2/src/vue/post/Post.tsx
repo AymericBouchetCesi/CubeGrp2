@@ -1,13 +1,12 @@
 import {IonPage, IonContent, IonInput, IonButton, IonIcon, IonCard, IonCardTitle, IonCheckbox} from "@ionic/react";
 import React, { useEffect, useState } from "react";
 import './Post.css';
-import {disconnectFromApp, test} from '../../firebaseConf'
+import {disconnectFromApp, test,refresh} from '../../firebaseConf'
 import { myToast } from "../../toast";
+import ItemList from '../../ItemList';
 
 const Post: React.FC = () => {
-    useEffect(() => {
-
-    }, [])
+    const [current, setCurrent] = useState(null);
     async function disconnect() {
         console.log("disconnect")
         const res = await disconnectFromApp()
@@ -32,7 +31,7 @@ const Post: React.FC = () => {
                 <IonCard>
                     <IonButton routerLink="/post/newPost" color ="primary">Nouveau post</IonButton>
                     <IonButton routerLink="/Post" color ="primary" onClick={tt}>Recharger</IonButton>
-                    
+                    <ItemList doEdit={setCurrent}/>
                 </IonCard>
             </IonContent>
         </IonPage>
