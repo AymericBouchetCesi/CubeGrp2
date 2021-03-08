@@ -5,6 +5,9 @@ import {
 } from '@ionic/react';
 import {IonReactRouter} from '@ionic/react-router';
 import Connection from "./vue/connection/Connection";
+import Inscription from "./vue/inscription/Inscription";
+import Post from "./vue/post/Post";
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -24,9 +27,21 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import React from "react";
+import React, { useEffect } from "react";
+import {getCurrentUser} from './firebaseConf'
 
-const App: React.FC = () => (
+const App: React.FC = () => {
+    useEffect(() => {
+        getCurrentUser().then(user =>{
+            if(user){
+                //login in
+                window.history.replaceState({}, '', '/post')
+            } else {
+                window.history.replaceState({}, '', '/')
+            }
+        })
+    }, [])
+return (
     <IonApp>
         <IonReactRouter>
             <IonRouterOutlet>
@@ -36,9 +51,16 @@ const App: React.FC = () => (
                 <Route exact path="/">
                     <Redirect to="/connection"/>
                 </Route>
+                <Route exact path="/inscription">
+                    <Inscription/>
+                </Route>
+                <Route exact path="/post">
+                    <Post/>
+                </Route>
             </IonRouterOutlet>
         </IonReactRouter>
     </IonApp>
-);
+    )
+}
 
 export default App;
