@@ -7,6 +7,7 @@ import {IonReactRouter} from '@ionic/react-router';
 import Connection from "./vue/connection/Connection";
 import Inscription from "./vue/inscription/Inscription";
 import Post from "./vue/post/Post";
+import NewPost from "./vue/post/newPost";
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -56,6 +57,9 @@ return (
                 </Route>
                 <Route exact path="/post">
                     <Post/>
+                </Route>
+                <Route exact path="/post/newPost">
+                    <NewPost/>
                 </Route>
             </IonRouterOutlet>
         </IonReactRouter>

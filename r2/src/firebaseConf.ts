@@ -1,5 +1,8 @@
-import * as fb from "firebase";
+import firebase, * as fb from "firebase";
+import "firebase/storage";
 import { resolve } from "path";
+import { timeStamp } from "console";
+// custom hook that will upload to firebase
 
 export const config = {
     apiKey: "AIzaSyCMX1MB_xFe8-Wo4VI5y_2DFhHkcOmsxe4",
@@ -12,7 +15,8 @@ export const config = {
 
 
   fb.default.initializeApp(config)
-
+  const db = fb.default.firestore();
+  
 
   export async function getCurrentUser() {
       return new Promise((resolve, reject) => {
@@ -40,7 +44,22 @@ export const config = {
         return false
     }
   }
-
+  export async function test() { 
+    const user = fb.default.auth().currentUser?.uid
+    const userRef = db.collection("Utilisateurs").doc(user)        
+    userRef.set({
+            Email : "Test@test.fr",
+            Nom : "Test",
+            Prénom : "tt",
+            Role : "citoyen"
+        });
+    const userPost = userRef.collection("Posts")
+    userPost.add({
+            Titre : "test",
+            Message : "tqsfsdfsfsddfsfsfdsffdsest",
+            Date : fb.default.database.ServerValue.TIMESTAMP
+        });
+  }
   export async function registerViaMail(userMail:string, password: string) {
     const mailExist = false//await fb.default.database().
     if(mailExist) {
@@ -49,6 +68,17 @@ export const config = {
     try{
         const res = await fb.default.auth().createUserWithEmailAndPassword(userMail,password)
         console.log(res)
+        const user = fb.default.auth().currentUser?.uid
+
+        const userRef = db.collection("Utilisateurs").doc(user)
+        
+        userRef.set({
+            Email : userMail,
+            Nom : "Test",
+            Prénom : "tt",
+            Role : "citoyen"
+        });
+        
         return 0
     } catch(err) {
         console.log(err)
@@ -66,3 +96,20 @@ export const config = {
         return false
     }
   }
+
+
+  export async function sendPostToDB(tt:string, text: string , img : String = "") { 
+    const user = fb.default.auth().currentUser?.uid
+
+    const userRef = db.collection("Utilisateurs").doc(user)
+    const userPost = userRef.collection("Posts").add(firebase.firestore.Timestamp.now())
+    ;(await userPost).set({
+            Titre : tt,
+            Message : text,
+            Date : fb.default.firestore.FieldValue.serverTimestamp()
+        });
+  }
+export async function refresh(){
+    db.collection("/Post").orderBy("Date")
+
+}

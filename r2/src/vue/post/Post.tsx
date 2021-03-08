@@ -1,12 +1,13 @@
 import {IonPage, IonContent, IonInput, IonButton, IonIcon, IonCard, IonCardTitle, IonCheckbox} from "@ionic/react";
 import React, { useEffect, useState } from "react";
 import './Post.css';
-import {getCurrentUser, loginViaMail} from '../../firebaseConf'
-import {disconnectFromApp} from '../../firebaseConf'
+import {disconnectFromApp, test} from '../../firebaseConf'
 import { myToast } from "../../toast";
 
-
 const Post: React.FC = () => {
+    useEffect(() => {
+
+    }, [])
     async function disconnect() {
         console.log("disconnect")
         const res = await disconnectFromApp()
@@ -17,6 +18,10 @@ const Post: React.FC = () => {
             window.location.href = "/"
         }
     }
+    async function tt() {
+        console.log("disconnect")
+        test()
+    }
     return (
         <IonPage>
             <IonContent color={"light"}>
@@ -25,7 +30,9 @@ const Post: React.FC = () => {
                     <IonButton  color ="primary" onClick={disconnect}>Deconnection</IonButton>
                 </IonCard>
                 <IonCard>
-                    <IonButton routerLink="/Post" color ="primary">Recharger</IonButton>
+                    <IonButton routerLink="/post/newPost" color ="primary">Nouveau post</IonButton>
+                    <IonButton routerLink="/Post" color ="primary" onClick={tt}>Recharger</IonButton>
+                    
                 </IonCard>
             </IonContent>
         </IonPage>
