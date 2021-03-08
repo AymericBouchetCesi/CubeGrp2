@@ -8,6 +8,7 @@ import Connection from "./vue/connection/Connection";
 import Inscription from "./vue/inscription/Inscription";
 import Post from "./vue/post/Post";
 import NewPost from "./vue/post/newPost";
+import Home from "./vue/Home/Home"
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -48,6 +49,9 @@ return (
             <IonRouterOutlet>
                 <Route exact path="/connection">
                     <Connection/>
+                </Route>
+                <Route exact path="/home">
+                    <Home/>
                 </Route>
                 <Route exact path="/">
                     <Redirect to="/connection"/>
