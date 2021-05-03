@@ -33,4 +33,4 @@ jobs:
         args: 
           -Dsonar.organization=aymericbouchetcesi
           -Dsonar.projectKey=AymericBouchetCesi_CubeGrp2
-          -Dsonar.sources=.
+          -Dsonar.sources=./r2
