@@ -32,7 +32,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: 79eeb93bc6634217bf1c16340f52579a7db53557
       with:
-        projectBaseDir: r2
         args: 
           -Dsonar.organization=aymericbouchetcesi
           -Dsonar.projectKey=AymericBouchetCesi_CubeGrp2
