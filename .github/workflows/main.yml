@@ -24,14 +24,3 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
 
-    - name: SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@v1.6
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: 79eeb93bc6634217bf1c16340f52579a7db53557
-      with:
-        projectBaseDir: r2
-        args: 
-          -Dsonar.organization=aymericbouchetcesi
-          -Dsonar.projectKey=AymericBouchetCesi_CubeGrp2
-          -Dsonar.sources=r2/
