@@ -33,16 +33,16 @@ import React, { useEffect } from "react";
 import {getCurrentUser} from './firebaseConf'
 
 const App: React.FC = () => {
-    useEffect(() => {
-        getCurrentUser().then(user =>{
-            if(user){
-                //login in
-                window.history.replaceState({}, '', '/post')
-            } else {
-                window.history.replaceState({}, '', '/')
-            }
-        })
-    }, [])
+    // useEffect(() => {
+    //     getCurrentUser().then(user =>{
+    //         if(user){
+    //             //login in
+    //             window.history.replaceState({}, '', '/post')
+    //         } else {
+    //             window.history.replaceState({}, '', '/')
+    //         }
+    //     })
+    // }, [])
 return (
     <IonApp>
         <IonReactRouter>

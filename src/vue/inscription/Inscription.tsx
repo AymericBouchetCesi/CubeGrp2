@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import './Inscription.css';
 import {registerViaMail} from '../../firebaseConf'
 import { myToast } from "../../toast";
+import SideMenu from "../../components/SideMenu/SideMenu";
 
 const Inscription: React.FC = () => {
     const [userMail,setUserMail] = useState('')
@@ -42,6 +43,7 @@ const Inscription: React.FC = () => {
 
     return (
         <IonPage>
+            <SideMenu/>
             <IonContent color={"light"}>
                 <IonCard color={"secondary"}>
                     <IonCardTitle>Inscription</IonCardTitle>

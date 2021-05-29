@@ -4,6 +4,7 @@ import './Post.css';
 import {disconnectFromApp, test,refresh} from '../../firebaseConf'
 import { myToast } from "../../toast";
 import ItemList from '../../ItemList';
+import SideMenu from "../../components/SideMenu/SideMenu";
 
 const Post: React.FC = () => {
     const [current, setCurrent] = useState(null);
@@ -23,6 +24,7 @@ const Post: React.FC = () => {
     }
     return (
         <IonPage>
+            <SideMenu/>
             <IonContent color={"light"}>
                 <IonCard color={"secondary"}>
                     <IonCardTitle>Post</IonCardTitle>

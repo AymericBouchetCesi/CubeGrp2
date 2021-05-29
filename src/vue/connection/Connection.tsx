@@ -5,6 +5,7 @@ import {getCurrentUser, loginViaMail} from '../../firebaseConf'
 import { myToast } from "../../toast";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import SideMenu from "../../components/SideMenu/SideMenu";
 
 
 const Connection: React.FC = () => {
@@ -27,6 +28,7 @@ const Connection: React.FC = () => {
 
     return (
         <IonPage>
+            <SideMenu/>
             <IonContent color={"light"}>
                 <IonCard color={"secondary"}>
                     <IonCardTitle>Connection</IonCardTitle>

@@ -1,14 +1,24 @@
 import {
     IonContent,
     IonHeader,
-    IonPage,
     IonTitle,
+    IonToolbar,
+    useIonViewWillEnter,
+    IonMenu,
+    IonItem,
+    IonList,
+    IonRouterOutlet,
+    IonPage,
+    IonMenuButton,
+    IonButton,
+    IonButtons,
     IonCard,
-    IonToolbar, useIonViewWillEnter,
     IonInfiniteScroll, IonInfiniteScrollContent
 } from '@ionic/react';
 import React, {useState} from 'react';
 import './Home.css';
+import Header from "../Header/Header";
+import SideMenu from "../../components/SideMenu/SideMenu";
 
 const Home: React.FC = () => {
 
@@ -45,14 +55,10 @@ const Home: React.FC = () => {
 
     return (
         <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle>Home</IonTitle>
-                </IonToolbar>
-            </IonHeader>
+            <SideMenu/>
             <IonContent>
                 {items.map((item: string, i: number) => {
-                    return <IonCard key={`${i}`}><img src={item}/></IonCard>
+                    return <IonCard key={`${i}`}><img src={item} alt="dogo"/></IonCard>
                 })}
 
                 <IonInfiniteScroll threshold="200%" disabled={disableInfiniteScroll}
