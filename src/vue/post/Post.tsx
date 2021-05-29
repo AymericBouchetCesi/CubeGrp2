@@ -29,8 +29,8 @@ const Post: React.FC = () => {
                     <IonButton  color ="primary" onClick={disconnect}>Deconnection</IonButton>
                 </IonCard>
                 <IonCard>
-                    <IonButton routerLink="/post/newPost" color ="primary">Nouveau post</IonButton>
-                    <IonButton routerLink="/Post" color ="primary" onClick={tt}>Recharger</IonButton>
+                    <IonButton routerLink="/post/newPost" id="new-post" color ="primary">Nouveau post</IonButton>
+                    <IonButton routerLink="/post" color ="primary" onClick={tt}>Recharger</IonButton>
                     <ItemList doEdit={setCurrent}/>
                 </IonCard>
             </IonContent>
