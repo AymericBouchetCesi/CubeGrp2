@@ -29,16 +29,9 @@ const SplitPane: React.FC<{main:any}> = (props) => {
             <IonSplitPane when="lg" contentId="mainContent">
                 <IonMenu side="start" menuId="first" contentId="mainContent">
                     <IonHeader>
-                        <IonToolbar color="primary">
-                            <IonTitle>Connected username</IonTitle>
+                        <IonToolbar color="secondary">
+                            <IonTitle color="primary">Connected username</IonTitle>
                         </IonToolbar>
-
-                        <IonItem>
-                            <IonLabel>yolo</IonLabel>
-                        </IonItem>
-                        <IonItem>
-                            <IonLabel>yolo</IonLabel>
-                        </IonItem>
 
                     </IonHeader>
 
@@ -77,8 +70,8 @@ const SplitPane: React.FC<{main:any}> = (props) => {
                 </IonMenu>
 
                 <div className="ion-page" id="mainContent">
-                    <IonHeader class="bg">
-                        <IonToolbar class="bg" color="secondary">
+                    <IonHeader>
+                        <IonToolbar color="secondary">
                             <IonButtons slot="start">
                                 <IonMenuToggle>
                                     <IonButton>
