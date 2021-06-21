@@ -1,9 +1,9 @@
-import {IonPage, IonContent, IonInput, IonButton, IonIcon, IonCard, IonCardTitle, IonCheckbox} from "@ionic/react";
+import {IonPage, IonContent, IonInput, IonButton, IonCard, IonCardTitle} from "@ionic/react";
 import React, { useState } from "react";
 import './Inscription.css';
 import {registerViaMail} from '../../firebaseConf'
 import { myToast } from "../../toast";
-import SideMenu from "../../components/SideMenu/SideMenu";
+import SplitPane from "../../components/SplitPane/SplitPane";
 
 const Inscription: React.FC = () => {
     const [userMail,setUserMail] = useState('')
@@ -42,29 +42,30 @@ const Inscription: React.FC = () => {
 
 
     return (
-        <IonPage>
-            <SideMenu/>
-            <IonContent color={"light"}>
-                <IonCard color={"secondary"}>
-                    <IonCardTitle>Inscription</IonCardTitle>
-                        <IonInput value={userMail} type="email" 
-                        placeholder="VotreEmail" onIonChange={(e: any) => setUserMail(e.target.value)}>
-                        Email </IonInput>
+        <SplitPane main={
+            <IonPage>
+                <IonContent color={"light"}>
+                    <IonCard color={"secondary"}>
+                        <IonCardTitle>Inscription</IonCardTitle>
+                        <IonInput value={userMail} type="email"
+                                  placeholder="VotreEmail" onIonChange={(e: any) => setUserMail(e.target.value)}>
+                            Email </IonInput>
                         <IonInput value={password} type="password" placeholder="Mot de passe"
-                        onIonChange={(e: any) => setPassword(e.target.value)}> 
-                        Mot de passe</IonInput>
-                        <IonInput value={cfPassword} type="password" 
-                        placeholder="Confirmation"
-                        onIonChange={(e: any) => setcfPassword(e.target.value)}> 
-                        Confirmation de mot de passe</IonInput>     
-                    <IonButton color ="primary"  onClick={register}>Inscription </IonButton>
-                </IonCard>
+                                  onIonChange={(e: any) => setPassword(e.target.value)}>
+                            Mot de passe</IonInput>
+                        <IonInput value={cfPassword} type="password"
+                                  placeholder="Confirmation"
+                                  onIonChange={(e: any) => setcfPassword(e.target.value)}>
+                            Confirmation de mot de passe</IonInput>
+                        <IonButton color ="primary"  onClick={register}>Inscription </IonButton>
+                    </IonCard>
 
-                <IonCard>
-                    <IonButton routerLink="/Connection" color ="primary">Connection</IonButton>
-                </IonCard>
-            </IonContent>
-        </IonPage>
+                    <IonCard>
+                        <IonButton routerLink="/Connection" color ="primary">Connection</IonButton>
+                    </IonCard>
+                </IonContent>
+            </IonPage>
+        }/>
     );
 };
 

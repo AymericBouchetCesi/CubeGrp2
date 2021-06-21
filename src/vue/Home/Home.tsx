@@ -1,24 +1,13 @@
 import {
     IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
     useIonViewWillEnter,
-    IonMenu,
-    IonItem,
-    IonList,
-    IonRouterOutlet,
     IonPage,
-    IonMenuButton,
-    IonButton,
-    IonButtons,
     IonCard,
-    IonInfiniteScroll, IonInfiniteScrollContent
+    IonInfiniteScroll, IonInfiniteScrollContent,
 } from '@ionic/react';
 import React, {useState} from 'react';
 import './Home.css';
-import Header from "../Header/Header";
-import SideMenu from "../../components/SideMenu/SideMenu";
+import SplitPane from "../../components/SplitPane/SplitPane";
 
 const Home: React.FC = () => {
 
@@ -54,19 +43,23 @@ const Home: React.FC = () => {
     }
 
     return (
-        <IonPage>
-            <SideMenu/>
-            <IonContent>
-                {items.map((item: string, i: number) => {
-                    return <IonCard key={`${i}`}><img src={item} alt="dogo"/></IonCard>
-                })}
+            <SplitPane main={
+                <IonPage>
+                    <IonContent>
+                        {items.map((item: string, i: number) => {
+                            return <IonCard key={`${i}`}><img src={item} alt="dogo"/></IonCard>
+                        })}
 
-                <IonInfiniteScroll threshold="200%" disabled={disableInfiniteScroll}
-                                   onIonInfinite={(e: CustomEvent<void>) => searchNext(e)}>
-                    <IonInfiniteScrollContent/>
-                </IonInfiniteScroll>
-            </IonContent>
-        </IonPage>
+                        <IonInfiniteScroll threshold="200%" disabled={disableInfiniteScroll}
+                                           onIonInfinite={(e: CustomEvent<void>) => searchNext(e)}>
+                            <IonInfiniteScrollContent/>
+                        </IonInfiniteScroll>
+                    </IonContent>
+                </IonPage>
+            }>
+
+            </SplitPane>
+
     );
 };
 

@@ -1,0 +1,33 @@
+.ionContentMenu {
+    border: 2px #62ceff dashed;
+}
+
+ion-grid {
+    height: 100%;
+    border: 2px #3a7be0 dashed;
+}
+
+ion-menu-button {
+    background-color: deeppink;
+}
+
+ion-row {
+    flex-direction: column;
+    border: 2px #2dd36f dashed;
+
+    height: 100%;
+}
+
+ion-col {
+    border: 2px #e0bb2e dashed;
+    flex-basis: inherit;
+    flex-grow: inherit;
+}
+
+ion-item {
+    border: 2px red dashed;
+}
+
+ion-label {
+    color: deeppink;
+}

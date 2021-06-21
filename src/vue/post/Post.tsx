@@ -1,10 +1,10 @@
-import {IonPage, IonContent, IonInput, IonButton, IonIcon, IonCard, IonCardTitle, IonCheckbox} from "@ionic/react";
-import React, { useEffect, useState } from "react";
+import {IonPage, IonContent, IonButton, IonCard, IonCardTitle} from "@ionic/react";
+import React, { useState } from "react";
 import './Post.css';
-import {disconnectFromApp, test,refresh} from '../../firebaseConf'
+import {disconnectFromApp, test} from '../../firebaseConf'
 import { myToast } from "../../toast";
 import ItemList from '../../ItemList';
-import SideMenu from "../../components/SideMenu/SideMenu";
+import SplitPane from "../../components/SplitPane/SplitPane";
 
 const Post: React.FC = () => {
     const [current, setCurrent] = useState(null);
@@ -23,20 +23,21 @@ const Post: React.FC = () => {
         test()
     }
     return (
-        <IonPage>
-            <SideMenu/>
-            <IonContent color={"light"}>
-                <IonCard color={"secondary"}>
-                    <IonCardTitle>Post</IonCardTitle>
-                    <IonButton  color ="primary" onClick={disconnect}>Deconnection</IonButton>
-                </IonCard>
-                <IonCard>
-                    <IonButton routerLink="/post/newPost" id="new-post" color ="primary">Nouveau post</IonButton>
-                    <IonButton routerLink="/post" color ="primary" onClick={tt}>Recharger</IonButton>
-                    <ItemList doEdit={setCurrent}/>
-                </IonCard>
-            </IonContent>
-        </IonPage>
+        <SplitPane main={
+            <IonPage>
+                <IonContent color={"light"}>
+                    <IonCard color={"secondary"}>
+                        <IonCardTitle>Post</IonCardTitle>
+                        <IonButton  color ="primary" onClick={disconnect}>Deconnection</IonButton>
+                    </IonCard>
+                    <IonCard>
+                        <IonButton routerLink="/post/newPost" id="new-post" color ="primary">Nouveau post</IonButton>
+                        <IonButton routerLink="/post" color ="primary" onClick={tt}>Recharger</IonButton>
+                        <ItemList doEdit={setCurrent}/>
+                    </IonCard>
+                </IonContent>
+            </IonPage>
+        }/>
     );
 };
 

@@ -31,6 +31,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import React, { useEffect } from "react";
 import {getCurrentUser} from './firebaseConf'
+import Settings from "./vue/settings/Settings";
 
 const App: React.FC = () => {
     // useEffect(() => {
@@ -64,6 +65,9 @@ return (
                 </Route>
                 <Route exact path="/post/newPost">
                     <NewPost/>
+                </Route>
+                <Route exact path="/settings">
+                    <Settings/>
                 </Route>
             </IonRouterOutlet>
         </IonReactRouter>
