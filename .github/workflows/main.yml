@@ -21,10 +21,23 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '14'
+        
+    - name: Install node.js packages
+      run: npm install
+      
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
 
+
+    - run: ./mvnw -ntp verify -DskipTests --batch-mode "-Pprod" "-Pe2e" "-Denforcer.skip=true"*
+    - run: npm run ci:e2e:prepare:docker
+    - name: npm run ci:e2e:run
+      run: npm run ci:e2e:run
+      env: 
+        JHI_E2E_HEADLESS: true
+    - run: npm run ci:e2e:teardown
+      
 
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v1.6
