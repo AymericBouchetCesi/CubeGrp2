@@ -1,7 +1,5 @@
 import firebase, * as fb from "firebase";
 import "firebase/storage";
-import { resolve } from "path";
-import { timeStamp } from "console";
 // custom hook that will upload to firebase
 
 export const config = {

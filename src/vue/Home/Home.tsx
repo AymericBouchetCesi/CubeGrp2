@@ -43,22 +43,20 @@ const Home: React.FC = () => {
     }
 
     return (
-            <SplitPane main={
-                <IonPage>
-                    <IonContent>
-                        {items.map((item: string, i: number) => {
-                            return <IonCard key={`${i}`}><img src={item} alt="dogo"/></IonCard>
-                        })}
+        <SplitPane main={
+            <div>
+                {items.map((item: string, i: number) => {
+                    return <IonCard key={`${i}`}><img src={item} alt="dogo"/></IonCard>
+                })}
 
-                        <IonInfiniteScroll threshold="200%" disabled={disableInfiniteScroll}
-                                           onIonInfinite={(e: CustomEvent<void>) => searchNext(e)}>
-                            <IonInfiniteScrollContent/>
-                        </IonInfiniteScroll>
-                    </IonContent>
-                </IonPage>
-            }>
+                <IonInfiniteScroll threshold="200%" disabled={disableInfiniteScroll}
+                                   onIonInfinite={(e: CustomEvent<void>) => searchNext(e)}>
+                    <IonInfiniteScrollContent/>
+                </IonInfiniteScroll>
+            </div>
+        }>
 
-            </SplitPane>
+        </SplitPane>
 
     );
 };

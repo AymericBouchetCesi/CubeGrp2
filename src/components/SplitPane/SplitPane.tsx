@@ -14,7 +14,7 @@ import {
     IonSplitPane,
     IonMenuToggle,
     IonButton,
-    IonIcon,
+    IonIcon, IonPage,
 } from '@ionic/react';
 import React from 'react';
 import './SplitPane.css';
@@ -25,7 +25,6 @@ const SplitPane: React.FC<{main:any}> = (props) => {
     //todo rendre paramétrable ce component (titre par exemple)
 
     return (
-        <>
             <IonSplitPane when="lg" contentId="mainContent">
                 <IonMenu side="start" menuId="first" contentId="mainContent">
                     <IonHeader>
@@ -69,7 +68,7 @@ const SplitPane: React.FC<{main:any}> = (props) => {
                     </IonFooter>
                 </IonMenu>
 
-                <div className="ion-page" id="mainContent">
+                <IonPage id="mainContent">
                     <IonHeader>
                         <IonToolbar color="secondary">
                             <IonButtons slot="start">
@@ -84,13 +83,11 @@ const SplitPane: React.FC<{main:any}> = (props) => {
                     </IonHeader>
 
                     <IonContent>
-                        <br/>
                         {props.main}
                     </IonContent>
-                </div>
+                </IonPage>
 
             </IonSplitPane>
-        </>
     );
 };
 

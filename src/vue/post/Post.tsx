@@ -24,19 +24,17 @@ const Post: React.FC = () => {
     }
     return (
         <SplitPane main={
-            <IonPage>
-                <IonContent color={"light"}>
-                    <IonCard color={"secondary"}>
-                        <IonCardTitle>Post</IonCardTitle>
-                        <IonButton  color ="primary" onClick={disconnect}>Deconnection</IonButton>
-                    </IonCard>
-                    <IonCard>
-                        <IonButton routerLink="/post/newPost" id="new-post" color ="primary">Nouveau post</IonButton>
-                        <IonButton routerLink="/post" color ="primary" onClick={tt}>Recharger</IonButton>
-                        <ItemList doEdit={setCurrent}/>
-                    </IonCard>
-                </IonContent>
-            </IonPage>
+            <IonContent color={"light"}>
+                <IonCard color={"secondary"}>
+                    <IonCardTitle>Post</IonCardTitle>
+                    <IonButton  color ="primary" onClick={disconnect}>Deconnection</IonButton>
+                </IonCard>
+                <IonCard>
+                    <IonButton routerLink="/post/newPost" id="new-post" color ="primary">Nouveau post</IonButton>
+                    <IonButton routerLink="/post" color ="primary" onClick={tt}>Recharger</IonButton>
+                    <ItemList doEdit={setCurrent}/>
+                </IonCard>
+            </IonContent>
         }/>
     );
 };

@@ -25,9 +25,9 @@ const Inscription: React.FC = () => {
             {
                 const res = await registerViaMail(userMail,password)
                 console.log(`${res ?'Login valide' : 'Erreur de login'}`)
-                if(res == 1) {
+                if(res === 1) {
                     myToast("Erreur de d'inscription",2000,"danger")
-                }else if(res == 2)
+                }else if(res === 2)
                 {
                     myToast("Email déjà utilisé",2000,"success")
                 }
@@ -43,28 +43,26 @@ const Inscription: React.FC = () => {
 
     return (
         <SplitPane main={
-            <IonPage>
-                <IonContent color={"light"}>
-                    <IonCard color={"secondary"}>
-                        <IonCardTitle>Inscription</IonCardTitle>
-                        <IonInput value={userMail} type="email"
-                                  placeholder="VotreEmail" onIonChange={(e: any) => setUserMail(e.target.value)}>
-                            Email </IonInput>
-                        <IonInput value={password} type="password" placeholder="Mot de passe"
-                                  onIonChange={(e: any) => setPassword(e.target.value)}>
-                            Mot de passe</IonInput>
-                        <IonInput value={cfPassword} type="password"
-                                  placeholder="Confirmation"
-                                  onIonChange={(e: any) => setcfPassword(e.target.value)}>
-                            Confirmation de mot de passe</IonInput>
-                        <IonButton color ="primary"  onClick={register}>Inscription </IonButton>
-                    </IonCard>
+            <IonContent color={"light"}>
+                <IonCard color={"secondary"}>
+                    <IonCardTitle>Inscription</IonCardTitle>
+                    <IonInput value={userMail} type="email"
+                              placeholder="VotreEmail" onIonChange={(e: any) => setUserMail(e.target.value)}>
+                        Email </IonInput>
+                    <IonInput value={password} type="password" placeholder="Mot de passe"
+                              onIonChange={(e: any) => setPassword(e.target.value)}>
+                        Mot de passe</IonInput>
+                    <IonInput value={cfPassword} type="password"
+                              placeholder="Confirmation"
+                              onIonChange={(e: any) => setcfPassword(e.target.value)}>
+                        Confirmation de mot de passe</IonInput>
+                    <IonButton color ="primary"  onClick={register}>Inscription </IonButton>
+                </IonCard>
 
-                    <IonCard>
-                        <IonButton routerLink="/Connection" color ="primary">Connection</IonButton>
-                    </IonCard>
-                </IonContent>
-            </IonPage>
+                <IonCard>
+                    <IonButton routerLink="/Connection" color ="primary">Connection</IonButton>
+                </IonCard>
+            </IonContent>
         }/>
     );
 };

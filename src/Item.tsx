@@ -1,5 +1,5 @@
 import React from 'react';
-import {IonItem, IonLabel, IonText, IonItemSliding, IonItemOption, IonItemOptions, IonIcon, IonImg} from '@ionic/react';
+import {IonItem, IonLabel, IonText, IonItemSliding, IonItemOption, IonItemOptions, IonIcon} from '@ionic/react';
 import {document, trash} from 'ionicons/icons';
 
 interface Props {
@@ -32,13 +32,13 @@ const Item: React.FC<Props> = ({doEdit,doDelete,doc}) => {
                 <IonItemOption onClick={()=>{
                     doEdit(doc.id);
                     }}>
-                    <IonIcon slot="icon-only" icon={document}></IonIcon>
+                    <IonIcon slot="icon-only" icon={document}/>
                 </IonItemOption>
 
                 <IonItemOption onClick={()=> {
                     doDelete(doc.id);
                     }}>
-                    <IonIcon slot="icon-only" icon={trash}></IonIcon>
+                    <IonIcon slot="icon-only" icon={trash}/>
 
                 </IonItemOption>
             </IonItemOptions>
