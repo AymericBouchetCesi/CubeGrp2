@@ -1,7 +1,6 @@
-import {IonPage, IonContent, IonInput, IonButton, IonIcon, IonCard, IonCardTitle, IonCheckbox, IonTextarea, IonCardSubtitle} from "@ionic/react";
-import React, { useEffect, useState } from "react";
+import {IonPage, IonContent, IonInput, IonButton, IonCard, IonCardTitle, IonTextarea, IonCardSubtitle} from "@ionic/react";
+import React, { useState } from "react";
 import './Post.css';
-import { myToast } from "../../toast";
 import {sendPostToDB} from '../../firebaseConf'
 
 
@@ -13,7 +12,6 @@ const NewPost: React.FC = () => {
         console.log("sendPostToDB")
         console.log(title)
         sendPostToDB(title,text)
-        //window.location.href="/Post"
     }
     return (
         <IonPage>

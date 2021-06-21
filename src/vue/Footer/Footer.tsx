@@ -5,9 +5,9 @@ import {
     IonSegment,
     IonSegmentButton,
     IonButton,
-    IonIcon, IonFab, IonFabButton
+    IonIcon
 } from '@ionic/react';
-import {homeSharp, searchSharp, addCircleSharp, saveSharp, statsChartSharp, add} from 'ionicons/icons';
+import {homeSharp, searchSharp, addCircleSharp, saveSharp, statsChartSharp} from 'ionicons/icons';
 
 const Footer: React.FC = () => {
     return (

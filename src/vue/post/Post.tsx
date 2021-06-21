@@ -7,7 +7,7 @@ import ItemList from '../../ItemList';
 import SplitPane from "../../components/SplitPane/SplitPane";
 
 const Post: React.FC = () => {
-    const [current, setCurrent] = useState(null);
+    const [setCurrent] = useState(null);
     async function disconnect() {
         console.log("disconnect")
         const res = await disconnectFromApp()
