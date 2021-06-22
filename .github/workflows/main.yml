@@ -29,29 +29,32 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
 
-test e2e:
-  runs-on: ubuntu-latest
+  test e2e:
+    runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v2
-     - name: Use Node.js 14.x
-       uses: actions/setup-node@v1
-       with:
-          node-version: 14.x
-     - name: Cypress run
-       uses: cypress-io/github-action@v2
-       with:
-          build: npm run build
-          start: npm start
-          headless: true
-      
-
-    - name: SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@v1.6
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: 79eeb93bc6634217bf1c16340f52579a7db53557
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v1
       with:
-        args: 
-          -Dsonar.organization=aymericbouchetcesi
-          -Dsonar.projectKey=AymericBouchetCesi_CubeGrp2
-          -Dsonar.sources=.
+        node-version: 14.x
+
+    - name: Cypress run
+      uses: cypress-io/github-action@v2
+      with:
+        build: npm run build
+        start: npm start
+        headless: TRUE
+
+  sonar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v1.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: 79eeb93bc6634217bf1c16340f52579a7db53557
+        with:
+          args: 
+            -Dsonar.organization=aymericbouchetcesi
+            -Dsonar.projectKey=AymericBouchetCesi_CubeGrp2
+            -Dsonar.sources=.
