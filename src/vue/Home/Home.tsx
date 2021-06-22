@@ -1,7 +1,5 @@
 import {
-    IonContent,
     useIonViewWillEnter,
-    IonPage,
     IonCard,
     IonInfiniteScroll, IonInfiniteScrollContent,
 } from '@ionic/react';

@@ -1,4 +1,4 @@
-import firebase, * as fb from "firebase";
+import * as fb from "firebase";
 import "firebase/storage";
 // custom hook that will upload to firebase
 
@@ -17,7 +17,7 @@ export const config = {
   
 
   export async function getCurrentUser() {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         const unsubscribe = fb.default.auth().onAuthStateChanged(function(user)
         {
             if(user) {

@@ -1,4 +1,4 @@
-import {IonPage, IonContent, IonInput, IonButton, IonCard, IonCardTitle} from "@ionic/react";
+import {IonContent, IonInput, IonButton, IonCard, IonCardTitle} from "@ionic/react";
 import React, { useState } from "react";
 import './Inscription.css';
 import {registerViaMail} from '../../firebaseConf'

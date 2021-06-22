@@ -9,14 +9,14 @@ interface Props {
 }
 
 const ItemList: React.FC<Props> = ({doEdit}) => {
-    const [value, loading, error] = useCollection(
+    const [value, loading] = useCollection(
         firebase.firestore().collectionGroup("Posts"),
         {
             snapshotListenOptions:{includeMetadataChanges:true}
         }
     );
     const closeSlidingItems = () => {
-        let list = document.getElementById("list") as any;
+        // let list = document.getElementById("list") as any;
     };
 
     return (
