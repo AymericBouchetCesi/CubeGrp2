@@ -29,24 +29,21 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
 
-  test_e2e:
+  test-e2e:
+    needs: [ build ]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
+     - uses: actions/checkout@v2
+     - name: Use Node.js 14.x
+       uses: actions/setup-node@v1
+       with:
+          node-version: 14.x
+     - name: Cypress run
+       uses: cypress-io/github-action@v2
+       with:
+          build: npm run build
+          start: npm start
 
-    - name: Cypress run
-      uses: cypress-io/github-action@v2
-      with:
-        browser: chrome
-        record: true
-        start: npm run e2e_test
-      env:
-        CYPRESS_RECORD_KEY: 865daa4e-2786-4726-a1a9-6b241a4cdd74
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   sonar:
     runs-on: ubuntu-latest
