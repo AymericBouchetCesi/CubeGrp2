@@ -40,6 +40,7 @@ jobs:
           node-version: 14.x
      - name: Cypress run
        uses: cypress-io/github-action@v2
+       timeout-minutes: 10
        with:
           build: npm run build
           start: npm start
