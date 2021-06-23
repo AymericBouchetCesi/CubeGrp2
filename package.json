@@ -44,7 +44,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run_record":"cypress run --record --key 865daa4e-2786-4726-a1a9-6b241a4cdd74",
+    "cy:ci": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test start https-get://localhost:8100 cy:run",
+    "e2e_test": "start-server-and-test start http://localhost:8100 cy:run"
   },
   "eslintConfig": {
     "extends": [
@@ -69,7 +73,8 @@
     "@testing-library/cypress": "^7.0.6",
     "@types/firebase": "^3.2.1",
     "cypress": "^7.3.0",
-    "react-scripts": "4.0.3"
+    "react-scripts": "4.0.3",
+    "start-server-and-test": "^1.12.5"
   },
   "description": "An Ionic project"
 }
