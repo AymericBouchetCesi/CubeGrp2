@@ -41,12 +41,12 @@ jobs:
     - name: Cypress run
       uses: cypress-io/github-action@v2
       with:
-        build: npm run build
         browser: chrome
         record: true
-        start: npm start
+        start: npm run e2e_test
       env:
         CYPRESS_RECORD_KEY: 865daa4e-2786-4726-a1a9-6b241a4cdd74
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   sonar:
     runs-on: ubuntu-latest
