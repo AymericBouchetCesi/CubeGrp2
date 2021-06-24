@@ -53,7 +53,7 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v1.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: 79eeb93bc6634217bf1c16340f52579a7db53557
+          SONAR_TOKEN: 27a2ad0dc91a4d9ceebdcbd2bb2f286bb7c5821f
         with:
           args: 
             -Dsonar.organization=aymericbouchetcesi
